@@ -19,7 +19,7 @@ Comment.init(
                 key: 'id',
             },
         },
-        author_id: {
+        author: {
             type: DataTypes.STRING,
             allowNull: false,
             references: {

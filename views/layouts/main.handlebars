@@ -2,11 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Example App</title>
+    <title>Tech Talk</title>
 </head>
 <body>
-
+    <header>
+        <h1>Tech Talk Blog</h1>
+        {{> (whichPartial) }}
+    </header>
+    
     {{{body}}}
+
+{{!-- script for landing page - unsure if this will cause issues for logged-in users --}}
+<script src="/js/landing.js"></script>
 
 </body>
 </html>
