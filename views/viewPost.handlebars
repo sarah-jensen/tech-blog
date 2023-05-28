@@ -1,0 +1,23 @@
+<section >
+    <article class="blog-card">
+        <header class="card-header">
+            <h2>{{blog.title}}</h2>
+            <h3>{{blog.author}} {{blog.date_created}}</h3>
+        </header>
+        <p>{{blog.content}}</p>
+        <footer>
+            <button>Add a comment</button>
+            <ul>
+                {{#each comments as |comment|}}
+                <li>
+                    <p class="comment-header">
+                        {{comment.author}} {{comment.date_created}}
+                    </p>
+                    <p>{{comment.content}}</p>
+                </li>
+                {{/each}}
+            </ul>
+        </footer>
+
+    </article>
+    </section>
