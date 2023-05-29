@@ -15,22 +15,22 @@ Blog.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        author: {
+        content: {
             type: DataTypes.STRING,
+            allowNull: false,
+        },
+        author_id: {
+            type: DataTypes.UUID,
             allowNull: false,
             references: {
                 model: 'user',
-                key: 'username',
+                key: 'id',
             },
         },
         date_created: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
-        },
-        content: {
-            type: DataTypes.STRING,
-            allowNull: false,
         },
     },
     {

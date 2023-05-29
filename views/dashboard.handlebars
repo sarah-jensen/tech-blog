@@ -10,6 +10,19 @@
     </ul>
 </section>
 
+<aside id="user-posts">
+    <h2>My recent posts:</h2>
+    {{#each blogs as |blog|}}
+    <article class="blog-card">
+        <header class="card-header">
+            <h2>{{blog.title}}</h2>
+            <h3>{{blog.date_created}}</h3>
+        </header>
+        <p>{{blog.content}}</p>
+    </div>
+    {{/each}}
+</aside>
+
 
 
 <script src="/js/dashboard.js"></script>
