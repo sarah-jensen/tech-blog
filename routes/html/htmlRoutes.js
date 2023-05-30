@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Blog, Comment } = require('../../models');
 
 
-//render public-facing homepage
+//render homepage
 router.get('/', async (req, res) => {
     try {
         //get all blog posts from db
@@ -10,22 +10,16 @@ router.get('/', async (req, res) => {
             include: [{
                 model: User,
                 attributes: ['username']
-            },
-        ],
-            order: ['createdAt', 'DESC']
+            }],
+            order: [['createdAt', 'DESC']],
         });
-        const blogPosts = blogData.map((blog) => blog.get({ plain: true }));
-
+        const blogs = blogData.map((blog) => blog.get({ plain: true }));
+        console.log(blogs);
         //render template
         res.render('home', {
-            blogPosts,
+            blogs,
             username: req.session.user_username,
         });
-        if(req.session.logged_in) {
-            res.redirect('/home');
-        } else {
-            res.render('login');
-        }
     } catch (error) {
         res.status(500).json({error});
     }
@@ -49,11 +43,11 @@ router.get('/dashboard/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['username', 'id'],
+                    attributes: [['username', 'id']],
                 },
             ],
             where: { author_id: userId },
-            order: ['createdAt', 'DESC'],
+            order: [['createdAt', 'DESC']],
         });
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
         res.render('dashboard', {

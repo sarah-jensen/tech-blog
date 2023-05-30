@@ -1,13 +1,14 @@
+<h2>Word on the street:</h2>
+
 <section id="blog-feed">
     {{#each blogs as |blog|}}
     <article class="blog-card">
         <header class="card-header">
             <h2>{{blog.title}}</h2>
-            <h3>{{blog.author}} {{blog.date_created}}</h3>
+            <h3>Created by: {{user.username}}, {{blog.date_created}}</h3>
         </header>
-        <p>{{blog.content}}</p>
-    </div>
+    </article>
     {{/each}}
 </section>
 
-<script src="/js/homepage.js"></script>
+<script src="/js/home.js"></script>
