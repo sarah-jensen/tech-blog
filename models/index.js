@@ -4,22 +4,22 @@ const Comment = require('./Comment');
 
 //user has many blogposts
 User.hasMany(Blog, {
-    foreignKey: 'author',
+    foreignKey: 'author_id',
 });
 
 //blogpost has one user
 Blog.belongsTo(User, {
-    foreignKey: 'author',
+    foreignKey: 'author_id',
 });
 
 //user has many comments
 User.hasMany(Comment, {
-    foreignKey: 'author',
+    foreignKey: 'author_id',
 });
 
 //comment has one user
 Comment.belongsTo(User, {
-    foreignKey: 'author',
+    foreignKey: 'author_id',
 });
 
 //blog has many comments
