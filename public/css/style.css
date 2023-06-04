@@ -1,6 +1,8 @@
-body {
-    background-image: url(images/background-image.jpg);
-}
+/* body {
+    background-image: url(images/bg.jpg);
+    background-size: cover;
+    background-position: center;
+} */
 
 .blog-card {
     background-color: rgba(229, 255, 204, .25);
