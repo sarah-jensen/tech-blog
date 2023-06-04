@@ -1,8 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+//initialize Blog model
 class Blog extends Model {}
 
+//set up fields and rules for Blog model
 Blog.init(
     {
         id: {
@@ -19,14 +21,6 @@ Blog.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        author_id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
         date_created: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -42,4 +36,4 @@ Blog.init(
     },
 );
 
-module.exports = Blog;
+module.exports = { Blog };

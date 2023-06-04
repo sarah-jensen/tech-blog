@@ -11,25 +11,9 @@ Comment.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        blog_id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-            references: {
-                model: 'blog',
-                key: 'id',
-            },
-        },
         content: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
-        author_id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
         },
         date_created: {
             type: DataTypes.DATE,
@@ -46,4 +30,4 @@ Comment.init(
     },
 );
 
-module.exports = Comment;
+module.exports = { Comment };

@@ -1,14 +1,23 @@
-<h2>Word on the street:</h2>
-
-<section id="blog-feed">
-    {{#each blogs as |blog|}}
-    <article class="blog-card">
-        <header class="card-header">
-            <h2>{{blog.title}}</h2>
-            <h3>Created by: {{user.username}}, {{blog.date_created}}</h3>
-        </header>
-    </article>
-    {{/each}}
+<section class="container-fluid">
+    <div class="row">
+        <h2 class="text-center">Word on the street:</h2>
+    </div>
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-6">
+            {{#each blogs as |blog|}}
+            <article data-id="{{blog.id}}" class="blog-card container-sm">
+                <header class="card-header">
+                    <h2>{{blog.title}}</h2>
+                    <h3>Created by: {{user.username}}, {{blog.date_created}}</h3>
+                </header>
+            </article>
+            {{/each}}
+        </div>
+        <div class="col">
+        </div>
+    </div>
 </section>
 
 <script src="/js/home.js"></script>

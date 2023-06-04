@@ -68,6 +68,33 @@ router.get('/dashboard/:id', async (req, res) => {
     }
 });
 
+//GET render single blog post with comment form
+router.get('/viewPost/:id', async (req, res) => {
+    try {
+        const blogData = await Blog.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Blog,
+                    attributes: ['id', 'title', 'date_created', 'content', ]
+                },
+                {
+                    model: User,
+                    attributes: 'username'
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'content', 'author_id', 'date_created',]
+                },
+            ],
+        });
+        const blog = blogData.get({ plain: true });
+        res.render('viewPost', {
+            blog,
+        })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 
 
