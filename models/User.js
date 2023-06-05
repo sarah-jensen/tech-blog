@@ -30,7 +30,7 @@ User.init(
     },
     {
         hooks: {
-            //has password before creating new user
+            //hash password before creating new user
             beforeCreate: async(newUserData) => {
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
@@ -44,4 +44,4 @@ User.init(
     },
 );
 
-module.exports = { User };
+module.exports = User;
