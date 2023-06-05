@@ -2,7 +2,7 @@ const User = require('./User');
 const Blog = require('./Blog');
 const Comment = require('./Comment');
 
-//user has many blogposts
+//user has many blog posts
 User.hasMany(Blog, {
     foreignKey: 'user_id',
 });
@@ -27,7 +27,7 @@ Blog.hasMany(Comment, {
     foreignKey: 'blog_id', 
 });
 
-//comment has one blogpost
+//comment has one blog post
 Comment.belongsTo(Blog, {
     foreignKey: 'blog_id',
 });
